@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counterfeit Medicine Detector - Medicine Reminder</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    
+    <style>
+        .detector-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .detector-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .detector-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .detector-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .scan-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scan-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .scan-tab {
+            padding: 1rem 2rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #718096;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: var(--transition);
+        }
+
+        .scan-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .scan-content {
+            display: none;
+        }
+
+        .scan-content.active {
+            display: block;
+        }
+
+        #qr-reader {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .manual-entry-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .verification-result {
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: var(--radius);
+            display: none;
+        }
+
+        .verification-result.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-genuine {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+        }
+
+        .result-counterfeit {
+            background: #fff5f5;
+            border: 2px solid #f56565;
+        }
+
+        .result-unknown {
+            background: #fffbeb;
+            border: 2px solid #ed8936;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .result-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .result-details {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-top: 1rem;
+        }
+
+        .result-details p {
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-details strong {
+            color: var(--dark);
+        }
+
+        .verification-tips {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-top: 1.5rem;
+        }
+
+        .verification-tips h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .verification-tips ul {
+            margin-left: 1.5rem;
+        }
+
+        .verification-tips li {
+            margin: 0.5rem 0;
+            color: var(--dark);
+        }
+
+        .reported-medicines {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .medicine-card {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--danger);
+        }
+
+        .medicine-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .medicine-card p {
+            font-size: 0.9rem;
+            color: #718096;
+            margin: 0.25rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .stat-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-label {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .report-btn {
+            background: var(--danger);
+            color: white;
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .report-btn:hover {
+            background: #e53e3e;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .detector-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .scan-tabs {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .scan-tab {
+                border-bottom: 1px solid var(--border);
+                border-left: 3px solid transparent;
+                margin-bottom: 0;
+            }
+
+            .scan-tab.active {
+                border-left-color: var(--primary);
+                border-bottom-color: var(--border);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="detector-container">
+        <!-- Header -->
+        <div class="detector-header">
+            <h1>🔍 Counterfeit Medicine Detector</h1>
+            <p>Verify the authenticity of your medicines using barcode/QR scanning or manual verification</p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-icon">✅</div>
+                <div class="stat-card-value" id="verifiedCount">0</div>
+                <div class="stat-card-label">Medicines Verified</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">⚠️</div>
+                <div class="stat-card-value" id="counterfeitCount">0</div>
+                <div class="stat-card-label">Counterfeits Detected</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">📊</div>
+                <div class="stat-card-value" id="databaseCount">1250+</div>
+                <div class="stat-card-label">In Database</div>
+            </div>
+        </div>
+
+        <!-- Scan Section -->
+        <div class="scan-section">
+            <h2>Verify Medicine</h2>
+            
+            <div class="scan-tabs">
+                <button class="scan-tab active" onclick="switchScanTab('qr')">QR/Barcode Scan</button>
+                <button class="scan-tab" onclick="switchScanTab('manual')">Manual Entry</button>
+                <button class="scan-tab" onclick="switchScanTab('batch')">Batch Verification</button>
+            </div>
+
+            <!-- QR Scanner -->
+            <div id="qr-scan" class="scan-content active">
+                <div id="qr-reader"></div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <button class="btn btn-primary" id="startScanBtn" onclick="CounterfeitDetector.startScanning()">
+                        📷 Start Scanning
+                    </button>
+                    <button class="btn btn-danger" id="stopScanBtn" onclick="CounterfeitDetector.stopScanning()" style="display: none;">
+                        ⏹️ Stop Scanning
+                    </button>
+                </div>
+            </div>
+
+            <!-- Manual Entry -->
+            <div id="manual-entry" class="scan-content">
+                <form class="manual-entry-form" onsubmit="CounterfeitDetector.verifyManual(event)">
+                    <div class="form-group">
+                        <label for="medicineName">Medicine Name *</label>
+                        <input type="text" id="medicineName" required placeholder="e.g., Paracetamol">
+                    </div>
+                    <div class="form-group">
+                        <label for="batchNumber">Batch Number *</label>
+                        <input type="text" id="batchNumber" required placeholder="e.g., BTH2024001">
+                    </div>
+                    <div class="form-group">
+                        <label for="manufacturer">Manufacturer</label>
+                        <input type="text" id="manufacturer" placeholder="e.g., Pharma Corp">
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="date" id="expiryDate">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        🔍 Verify Medicine
+                    </button>
+                </form>
+            </div>
+
+            <!-- Batch Verification -->
+            <div id="batch-verify" class="scan-content">
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <p style="margin-bottom: 1rem; color: #718096;">
+                        Upload a CSV file with batch numbers to verify multiple medicines at once.
+                    </p>
+                    <div class="form-group">
+                        <label for="batchFile">CSV File</label>
+                        <input type="file" id="batchFile" accept=".csv" onchange="CounterfeitDetector.handleBatchUpload(event)">
+                    </div>
+                    <p style="font-size: 0.85rem; color: #718096; margin-top: 0.5rem;">
+                        CSV format: medicine_name, batch_number, manufacturer
+                    </p>
+                </div>
+            </div>
+
+            <!-- Verification Result -->
+            <div id="verificationResult" class="verification-result"></div>
+        </div>
+
+        <!-- Verification Tips -->
+        <div class="scan-section">
+            <h2>🛡️ How to Identify Counterfeit Medicines</h2>
+            <div class="verification-tips">
+                <h3>Physical Inspection Tips:</h3>
+                <ul>
+                    <li>Check for proper packaging and sealing</li>
+                    <li>Verify holographic labels and security features</li>
+                    <li>Look for spelling errors on the packaging</li>
+                    <li>Check expiry date and batch number clarity</li>
+                    <li>Ensure tablet/capsule uniformity</li>
+                    <li>Verify manufacturer details and contact information</li>
+                    <li>Check for suspicious pricing (too good to be true)</li>
+                    <li>Purchase only from licensed pharmacies</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Reported Counterfeits -->
+        <div class="reported-medicines">
+            <h2>⚠️ Recently Reported Counterfeits</h2>
+            <div id="reportedList"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="index.html" class="btn btn-primary">
+                ← Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/datastore.js"></script>
+    <script src="js/counterfeit.js"></script>
+</body>
+</html>
