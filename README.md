@@ -8,6 +8,14 @@ This project was built as a **hackathon-grade solution**, focusing on real-world
 
 ---
 
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-Educational-green.svg)
+![PWA](https://img.shields.io/badge/PWA-enabled-orange.svg)
+
+---
+
+[Version 1](priyarani8281.github.io/medicine-reminder/)
+
 ## 🚀 Problem Statement
 
 - People forget to take medicines on time
