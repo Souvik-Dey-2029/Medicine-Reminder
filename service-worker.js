@@ -1,16 +1,16 @@
 const CACHE_NAME = 'medicine-reminder-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/app.js',
-  '/js/utils.js',
-  '/js/datastore.js',
-  '/js/medicine.js',
-  '/js/notifications.js',
-  '/js/voice.js',
-  '/js/analytics.js',
-  '/js/achievements.js'
+  './',
+  './index.html',
+  './css/styles.css',
+  './js/app.js',
+  './js/utils.js',
+  './js/datastore.js',
+  './js/medicine.js',
+  './js/notifications.js',
+  './js/voice.js',
+  './js/analytics.js',
+  './js/achievements.js'
 ];
 
 // Install event
