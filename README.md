@@ -14,7 +14,7 @@ This project was built as a **hackathon-grade solution**, focusing on real-world
 
 ---
 
-[Version 1](priyarani8281.github.io/medicine-reminder/)
+[Version 1](https://github.com/priyarani8281/medicine-reminder)
 
 ## 🚀 Problem Statement
 
