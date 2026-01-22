@@ -8,9 +8,11 @@ This project was built as a **hackathon-grade solution**, focusing on real-world
 
 ---
 
-![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-Educational-green.svg)
-![PWA](https://img.shields.io/badge/PWA-enabled-orange.svg)
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ![Version](https://img.shields.io/badge/OPEN-Version%302-blue?style=for-the-badge)
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ![Status](https://img.shields.io/badge/STATUS-OPEN-brightgreen?style=for-the-badge)
+&nbsp;![License](https://img.shields.io/badge/LICENSE-Educational-yellow?style=for-the-badge)
+&nbsp;![PWA](https://img.shields.io/badge/PWA-Enabled-orange?style=for-the-badge)
 
 ---
 ## **Version 2:**  [Open](https://github.com/Souvik-Dey-2029/Medicine-Reminder)
