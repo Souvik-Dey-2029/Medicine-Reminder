@@ -7,21 +7,23 @@ It combines **smart reminders, analytics, gamification, voice commands, offline 
 This project was built as a **hackathon-grade solution**, focusing on real-world healthcare problems using modern web technologies.
 
 ---
-
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ![Version](https://img.shields.io/badge/OPEN-Version%302-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/OPEN-Version%302-blue?style=for-the-badge)
 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ![Status](https://img.shields.io/badge/STATUS-OPEN-brightgreen?style=for-the-badge)
-&nbsp;![License](https://img.shields.io/badge/LICENSE-Educational-yellow?style=for-the-badge)
-&nbsp;![PWA](https://img.shields.io/badge/PWA-Enabled-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-OPEN-brightgreen?style=for-the-badge)
+![License](https://img.shields.io/badge/LICENSE-Educational-yellow?style=for-the-badge)
+![PWA](https://img.shields.io/badge/PWA-Enabled-orange?style=for-the-badge)
 
 ---
-## **Version 2:**  [Open](https://github.com/Souvik-Dey-2029/Medicine-Reminder)
-***Live Link:*** [Visit](https://souvik-dey-2029.github.io/Medicine-Reminder/)
-
-----
 
 ## **Version 1:**  [Open](https://github.com/priyarani8281/medicine-reminder)
 ***Live Link:*** [Visit](https://priyarani8281.github.io/medicine-reminder/)
+
+---
+
+## **Version 2:**  [Open](https://github.com/Souvik-Dey-2029/Medicine-Reminder)
+***Live Link:*** [Visit](https://souvik-dey-2029.github.io/Medicine-Reminder/)
+
+---
 
 ## 🚀 Problem Statement
 
