@@ -13,8 +13,10 @@ This project was built as a **hackathon-grade solution**, focusing on real-world
 ![PWA](https://img.shields.io/badge/PWA-enabled-orange.svg)
 
 ---
+## **Version 2:**  [Open](https://github.com/Souvik-Dey-2029/Medicine-Reminder)
+***Live Link:*** [open](https://souvik-dey-2029.github.io/Medicine-Reminder/)
 
-[Version 1](https://github.com/priyarani8281/medicine-reminder)
+
 
 ## 🚀 Problem Statement
 
