@@ -7,7 +7,7 @@ It combines **smart reminders, analytics, gamification, voice commands, offline 
 This project was built as a **hackathon-grade solution**, focusing on real-world healthcare problems using modern web technologies.
 
 ---
-![Version](https://img.shields.io/badge/OPEN-Version%302-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-%302-blue?style=for-the-badge)
 <br>
 ![Status](https://img.shields.io/badge/STATUS-OPEN-brightgreen?style=for-the-badge)
 ![License](https://img.shields.io/badge/LICENSE-Educational-yellow?style=for-the-badge)
