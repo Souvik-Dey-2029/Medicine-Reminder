@@ -16,12 +16,13 @@ This project was built as a **hackathon-grade solution**, focusing on real-world
 ---
 
 ## **Version 1:**  [Open](https://github.com/priyarani8281/medicine-reminder)
-***Live Link:*** [Visit](https://priyarani8281.github.io/medicine-reminder/)
+### ***Live Link:*** [Visit](https://priyarani8281.github.io/medicine-reminder/)
 
 ---
 
 ## **Version 2:**  [Open](https://github.com/Souvik-Dey-2029/Medicine-Reminder)
-***Live Link:*** [Visit](https://souvik-dey-2029.github.io/Medicine-Reminder/)
+### ***Live Link:*** [Visit](https://souvik-dey-2029.github.io/Medicine-Reminder/)
+### ***Alternative Link:*** [Visit](medicine-reminder1-orcin.vercel.app)
 
 ---
 
