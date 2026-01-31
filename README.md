@@ -1,7 +1,7 @@
 # 💊 Medicine Reminder  
 ### Medicine Reminder & Health Safety Platform
 
-Medicine Reminder Pro is a **progressive web application (PWA)** designed to help users manage medicines safely and intelligently.  
+Medicine Reminder is a **progressive web application (PWA)** designed to help users manage medicines safely and intelligently.  
 It combines **smart reminders, analytics, gamification, voice commands, offline support**, and a **counterfeit medicine detection module** to improve medication adherence and patient safety.
 
 This project was built as a **hackathon-grade solution**, focusing on real-world healthcare problems using modern web technologies.
